@@ -1,0 +1,29 @@
+NAME: Yash Choudhary 
+EMAIL: yashc@g.ucla.edu
+ID: 704630134
+
+NO SLIP DAYS USED.
+
+Included files:
+1. lab0.c : This contains the source code for the project. It copies standard input to its standard output by reading from file descriptor 0 and writing to file descriptor 1. 
+
+2. Makefile: This file is used to compile our .c file without the explicit use of gcc using 'make'. Apart from that it also includes dist which is used to make the tarball file, clean which removes all the files that were added due to Makefile and finally check which is used to check if our program works as needed
+
+3. backtrace.png and breakpoint.png: These are screenshots of the gdb results from our program. They show the stack backtrace of the point in our program where the segment fault takes place. 
+breakpoint.png shows us the reason for the segment fault and validates it. 
+
+Concerns:
+My gdb was running on an older version and thus I kept getting the error message:
+"Missing separate debuginfos, use: debuginfo-install glibc-2.17-157.el7_3.1.x86_64"
+and this is included in my screenshots too.
+The solution to this is using the command debuginfo-install ...  but it did not work for me.
+
+
+Resources used:
+1. My previous 35L projects which include read, write and malloc.
+2. http://www.gnu.org/software/libc/manual/html_node/Getopt-Long-Options.html#Getopt-Long-Options
+3. https://www.ibm.com/developerworks/community/blogs/58e72888-6340-46ac-b488-d31aa4058e9c/entry/understanding_linux_command_line_arguments_part_2_the_getopt_function19?lang=en
+4. https://www.tutorialspoint.com/c_standard_library/c_function_signal.htm
+
+
+

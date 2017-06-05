@@ -1,0 +1,49 @@
+NAME: YASH CHOUDHARY
+UID: 704630134
+EMAIL: YASHC@G.UCLA.EDU
+
+Included Files:
+1. Makefile: With targets clean, dist, build, tests and graphs. 
+2. README: This.
+3. lab2_add.c : Multithreaded implementation of add function 
+4. lab2_list.c : Multithreaded implementation of linked list operations
+5. .csv files with comma separated output values
+6. png files with required graphs
+7. gp files to plot graphs
+8. test.sh: Test cases for plotting graphs
+
+
+Questions:
+
+QUESTION 2.1.1 - causing conflicts:
+Ans. There is a large overhead in this case, thus when a thread is created it does its assigned work even before the next thread is created, hence it takes a large number of
+iterations.
+
+QUESTION 2.1.2 - cost of yielding:
+Ans. Yielding is very expensive because sched_yield() is called everytime we need to yield, and sched_yield() is a system call hence entering kernel mode causes a lot of overhead. 
+No, it is not possible to get valid per-operation timings since multiple threads can call the sched_yield() hence there is a queue of threads waiting at any given time which cannot be 
+determined. 
+
+QUESTION 2.1.3 - measurement errors:
+Ans. The average cost per operation decreases as number of iterations increases because the number of iterations starts to dominate the cost/overhead of creating threads. Hence, the denominator
+starts to become bigger in the ratio thus decreasing the average.
+The correct "cost" or perfect number of iteratins to run is found by the point the graph of the average cost per operation (non-yield) as a function of the number of iterations converges to.
+
+QUESTION 2.1.4 - costs of serialization:
+Ans. For a low number of threads, the operations are done serially almost. Hence, threads don't have to wait longer and there is less memory contention. Thus, locks add no significant contribution for
+less number of threads. 
+For a larger number of threads, the locks have to hold to to threads until the previous thread is done hence increasing overhead. 
+
+QUESTION 2.2.2 - scalability of spin locks
+Ans. The graphs for both mutex and spin loks for both part 1 and 2 are linear, yet there is a difference in that spin locks require more overhead. This might be because instead of waiting and spinning, 
+mutexs just hold the thread. 
+
+
+QUESTION 2.2.1 - scalability of Mutex 
+Ans. For part 1 lab2_add, the graph shows a linear increase in the cost per operation since there is an increased overhead as threads increase,  whereas for part 2 lab_list, there is again a linear increase 
+which peaks at at about 8 threads and then decreases. This may be because of the large overhead from threads. 
+
+
+
+References:
+Random string generator algorith motivation: http://stackoverflow.com/questions/15767691/whats-the-c-library-function-to-generate-random-string
